@@ -173,11 +173,19 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+//Object to store all information about password : length , characters chosen and text generated
+var password = {
+  text: '',
+  length : 0,
+  characters :[],
+}
 
 
 
 
 
+
+return password.text
 }
 
 // Get references to the #generate element
