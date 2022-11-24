@@ -108,6 +108,7 @@ var charactersChosen= [];
   {
    var passwordLength = prompt("Please, enter the length of password (between 10 and 64)");
   }
+ 
 
   //Prompt to get Character type: Lowercase
 
@@ -143,8 +144,14 @@ var charactersChosen= [];
 
    //Prompt to get Character type: Special characters
 
+   var special= prompt("Do you want to include numeric characters on your password?");
 
-   
+   //If the user want to include special characters on the password
+   if (special) {
+       //the letter s (s for special) will be added to the charactersChosen array that will be used for randomization
+      charactersChosen.push('s');      
+   }
+
 
 
  //Returns an array with the chosen types of characters to generate the password
