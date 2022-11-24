@@ -111,15 +111,23 @@ var charactersChosen= [];
 
   //Prompt to get Character type: Lowercase
 
-  var lowercases= prompt("Do you want to include lowercases on your password?");
+  var lowercase= prompt("Do you want to include lowercase characters on your password?");
 
-    //If the user want to include lowercases on the password
-    if (lowercases) {
-        // the letter l (l for lowercases) will be added to the charactersChosen array that will be used for ramdomization
+    //If the user want to include lowercases characters on the password
+    if (lowercase) {
+        // the letter l (l for lowercase) will be added to the charactersChosen array that will be used for ramdomization
        charactersChosen.push('l');      
     }
 
   //Prompt to get Character type: Uppercase
+
+  var uppercase= prompt("Do you want to include uppercase characters on your password?");
+
+  //If the user want to include uppercase characters on the password
+  if (uppercase) {
+      // the letter u (u for uppercase) will be added to the charactersChosen array that will be used for ramdomization
+     charactersChosen.push('u');      
+  }
 
   //Prompt to get Character type: Numeric
 
