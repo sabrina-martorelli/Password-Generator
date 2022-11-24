@@ -151,7 +151,8 @@ var passwordChosen = {
    }
 
 
-
+   console.log(passwordChosen);
+   
  //Returns an object with the  length of the password and types of characters chosen
            
        return   passwordChosen;
