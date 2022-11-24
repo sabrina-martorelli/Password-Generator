@@ -109,6 +109,9 @@ var charactersChosen= [];
    var passwordLength = prompt("Please, enter the length of password (between 10 and 64)");
   }
  
+  //Adds the number of characters chosen
+  charactersChosen.push(passwordLength);
+
 
   //Prompt to get Character type: Lowercase
 
