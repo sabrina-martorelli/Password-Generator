@@ -88,17 +88,11 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-//Object to store and return input values
-var passwordChosen = {
-  length : 0,
-  characters :[],
-}
-
 
 
 
 // Function to prompt user for password options
-function getPasswordOptions() {
+function getPasswordOptions(passwordChosen) {
 
   // Prompt to get the user input for the length of password - At least 10 characters but no more than 64.
   // Will keep asking until a number within the limits is chosen
@@ -157,8 +151,6 @@ function getPasswordOptions() {
        return   passwordChosen;
 
 
-
-
 }
 
 // Function for getting a random element from an array
@@ -170,9 +162,17 @@ function getRandom(arr) {
     return (arr[index]);
 }
 
+
+
+
 // Function to generate password with user input
 function generatePassword() {
 
+//Object to store and return input values
+var passwordChosen = {
+  length : 0,
+  characters :[],
+}
 
 
 
