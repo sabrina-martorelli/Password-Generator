@@ -184,12 +184,27 @@ var options = getPasswordOptions();
 
 for (var index=0 ; index< options.length ; index++){
 
-  // Call for getting a random element from an array of chosen characters 
+  // Call for getting a random element from the array of chosen characters 
   var randomArray = getRandom(options.characters);
 
+  //Call for getting a character base on the previous selection of type of character
+  switch (randomArray) {
+    case 'l':
+      password.text += getRandom(lowerCasedCharacters);
+      break;
+    case 'u':
+      password.text += getRandom(upperCasedCharacters);
+      break;
+    case 'n':
+      password.text += getRandom(numericCharacters);
+      break;
+    case 's':
+      password.text += getRandom(specialCharacters);
+      break;
+  
+  }
 
 
-  password.text += getRandom()
 
 
 
