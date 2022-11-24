@@ -180,7 +180,20 @@ var password = {
   characters :[],
 }
 
+var options = getPasswordOptions();
 
+for (var index=0 ; index< options.length ; index++){
+
+  // Call for getting a random element from an array of chosen characters 
+  var randomArray = getRandom(options.characters);
+
+
+
+  password.text += getRandom()
+
+
+
+}
 
 
 
