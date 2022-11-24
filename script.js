@@ -98,12 +98,12 @@ function getPasswordOptions() {
 
 //Function internal variables
 var passwordLength = 0; 
-var charactersChoosen= [];
+var charactersChosen= [];
   
 
 
-  // Prompt to get the length of password - At least 10 characters but no more than 64.
-  // Will keep asking until the correct option is choosen
+  // Prompt to get the user input for the length of password - At least 10 characters but no more than 64.
+  // Will keep asking until a number within the limits is chosen
   while ((passwordLength < 10 ) || (passwordLength > 64))
   {
    var passwordLength = prompt("Please, enter the length of password (between 10 and 64)");
@@ -115,8 +115,8 @@ var charactersChoosen= [];
 
     //If the user want to include lowercases on the password
     if (lowercases) {
-        // the letter l (l for lowercases) will be added to the charactersChoosen array that will be used for ramdomization
-       charactersChoosen.push('l');      
+        // the letter l (l for lowercases) will be added to the charactersChosen array that will be used for ramdomization
+       charactersChosen.push('l');      
     }
 
   //Prompt to get Character type: Uppercase
@@ -126,7 +126,9 @@ var charactersChoosen= [];
    //Prompt to get Character type: Special characters
 
 
-
+ //Returns an array with the chosen types of characters to generate the password
+           
+       return   charactersChosen;
 }
 
 // Function for getting a random element from an array
