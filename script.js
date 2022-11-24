@@ -111,8 +111,13 @@ var charactersChoosen= [];
 
   //Prompt to get Character type: Lowercase
 
-  = prompt("Do you want to include Lowercases on your password?");
+  var lowercases= prompt("Do you want to include lowercases on your password?");
 
+    //If the user want to include lowercases on the password
+    if (lowercases) {
+        // the letter l (l for lowercases) will be added to the charactersChoosen array that will be used for ramdomization
+       charactersChoosen.push('l');      
+    }
 
   //Prompt to get Character type: Uppercase
 
