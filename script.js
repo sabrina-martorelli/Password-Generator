@@ -110,7 +110,7 @@ var passwordChosen = {
 
   //Prompt to get Character type: Lowercase
 
-  var lowercase= alert("Do you want to include lowercase characters on your password?");
+  var lowercase= confirm("Do you want to include lowercase characters on your password?");
 
     //If the user want to include lowercases characters on the password
     if (lowercase) {
@@ -120,7 +120,7 @@ var passwordChosen = {
 
   //Prompt to get Character type: Uppercase
 
-  var uppercase= alert("Do you want to include uppercase characters on your password?");
+  var uppercase= confirm("Do you want to include uppercase characters on your password?");
 
   //If the user want to include uppercase characters on the password
   if (uppercase) {
@@ -131,7 +131,7 @@ var passwordChosen = {
   //Prompt to get Character type: Numeric
 
 
-  var numeric= alert("Do you want to include numeric characters on your password?");
+  var numeric= confirm("Do you want to include numeric characters on your password?");
 
   //If the user want to include numeric characters on the password
   if (numeric) {
@@ -142,7 +142,7 @@ var passwordChosen = {
 
    //Prompt to get Character type: Special characters
 
-   var special= alert("Do you want to include numeric characters on your password?");
+   var special= confirm("Do you want to include numeric characters on your password?");
 
    //If the user want to include special characters on the password
    if (special) {
@@ -187,7 +187,7 @@ for (var index=0 ; index< options.length ; index++){
   // Call for getting a random element from the array of chosen characters 
   var randomArray = getRandom(options.characters);
 
-  //Call for getting a character base on the previous selection of type of character
+  //Call for getting a character base on the random selection of the type of character previously chosen
   switch (randomArray) {
     case 'l':
       password.text += getRandom(lowerCasedCharacters);
@@ -201,17 +201,9 @@ for (var index=0 ; index< options.length ; index++){
     case 's':
       password.text += getRandom(specialCharacters);
       break;
-  
   }
 
-
-
-
-
 }
-
-
-
 
 return password.text
 }
