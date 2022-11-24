@@ -90,7 +90,6 @@ var upperCasedCharacters = [
 
 
 
-
 // Function to prompt user for password options
 function getPasswordOptions() {
 
@@ -101,9 +100,15 @@ function getPasswordOptions() {
   }
 
   // Use of prompt to get the user input for the length of password - At least 10 characters but no more than 64.
-  // Will keep asking until a number within the limits is chosen
-  while ((passwordChosen.length < 10) || (passwordChosen.length > 64)) {
+  // Will keep asking until a number within the limits is chosen. If a letter is chosen will ask again.
+
+  
+  passwordChosen.length = prompt("Please, enter the length of password (between 10 and 64)");
+  
+  while ( isNaN(passwordChosen.length) || (passwordChosen.length < 10) || (passwordChosen.length > 64) ) {
+  
     passwordChosen.length = prompt("Please, enter the length of password (between 10 and 64)");
+  
   }
 
  //Will keep asking the user until at least one type of character is chosen
