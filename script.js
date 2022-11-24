@@ -88,20 +88,17 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-
+//Object to store and return input values
+var passwordChosen = {
+  length : 0,
+  characters :[],
+}
 
 
 
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-
-//Object to store and return input values
-var passwordChosen = {
-  length : 0,
-  characters :[],
-}
-  
 
   // Prompt to get the user input for the length of password - At least 10 characters but no more than 64.
   // Will keep asking until a number within the limits is chosen
