@@ -115,7 +115,7 @@ var charactersChosen= [];
 
     //If the user want to include lowercases characters on the password
     if (lowercase) {
-        // the letter l (l for lowercase) will be added to the charactersChosen array that will be used for ramdomization
+        // the letter l (l for lowercase) will be added to the charactersChosen array that will be used for randomization
        charactersChosen.push('l');      
     }
 
@@ -125,13 +125,26 @@ var charactersChosen= [];
 
   //If the user want to include uppercase characters on the password
   if (uppercase) {
-      // the letter u (u for uppercase) will be added to the charactersChosen array that will be used for ramdomization
+      // the letter u (u for uppercase) will be added to the charactersChosen array that will be used for randomization
      charactersChosen.push('u');      
   }
 
   //Prompt to get Character type: Numeric
 
+
+  var numeric= prompt("Do you want to include numeric characters on your password?");
+
+  //If the user want to include numeric characters on the password
+  if (numeric) {
+      //the letter n (n for numeric) will be added to the charactersChosen array that will be used for randomization
+     charactersChosen.push('n');      
+  }
+
+
    //Prompt to get Character type: Special characters
+
+
+   
 
 
  //Returns an array with the chosen types of characters to generate the password
