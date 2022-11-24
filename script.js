@@ -96,22 +96,21 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
 
-//Function internal variables
-var passwordLength = 0; 
-var charactersChosen= [];
+//Object to store and return input values
+var passwordChosen = {
+  length : 0,
+  characters :[],
+}
   
 
 
   // Prompt to get the user input for the length of password - At least 10 characters but no more than 64.
   // Will keep asking until a number within the limits is chosen
-  while ((passwordLength < 10 ) || (passwordLength > 64))
+  while ((passwordChosen.length < 10 ) || (passwordChosen.length > 64))
   {
-   var passwordLength = prompt("Please, enter the length of password (between 10 and 64)");
+    passwordChosen.length = prompt("Please, enter the length of password (between 10 and 64)");
   }
  
-  //Adds the number of characters chosen
-  charactersChosen.push(passwordLength);
-
 
   //Prompt to get Character type: Lowercase
 
@@ -120,7 +119,7 @@ var charactersChosen= [];
     //If the user want to include lowercases characters on the password
     if (lowercase) {
         // the letter l (l for lowercase) will be added to the charactersChosen array that will be used for randomization
-       charactersChosen.push('l');      
+        passwordChosen.characters.push('l');      
     }
 
   //Prompt to get Character type: Uppercase
@@ -160,6 +159,11 @@ var charactersChosen= [];
  //Returns an array with the chosen types of characters to generate the password
            
        return   charactersChosen;
+
+//
+
+
+
 }
 
 // Function for getting a random element from an array
