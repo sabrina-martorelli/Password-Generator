@@ -103,7 +103,6 @@ var passwordChosen = {
 }
   
 
-
   // Prompt to get the user input for the length of password - At least 10 characters but no more than 64.
   // Will keep asking until a number within the limits is chosen
   while ((passwordChosen.length < 10 ) || (passwordChosen.length > 64))
@@ -129,7 +128,7 @@ var passwordChosen = {
   //If the user want to include uppercase characters on the password
   if (uppercase) {
       // the letter u (u for uppercase) will be added to the charactersChosen array that will be used for randomization
-     charactersChosen.push('u');      
+      passwordChosen.characters.push('u');      
   }
 
   //Prompt to get Character type: Numeric
@@ -140,7 +139,7 @@ var passwordChosen = {
   //If the user want to include numeric characters on the password
   if (numeric) {
       //the letter n (n for numeric) will be added to the charactersChosen array that will be used for randomization
-     charactersChosen.push('n');      
+      passwordChosen.characters.push('n');      
   }
 
 
@@ -151,14 +150,14 @@ var passwordChosen = {
    //If the user want to include special characters on the password
    if (special) {
        //the letter s (s for special) will be added to the charactersChosen array that will be used for randomization
-      charactersChosen.push('s');      
+       passwordChosen.characters.push('s');      
    }
 
 
 
  //Returns an array with the chosen types of characters to generate the password
            
-       return   charactersChosen;
+       return   passwordChosen;
 
 //
 
