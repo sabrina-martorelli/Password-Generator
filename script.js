@@ -152,7 +152,7 @@ var passwordChosen = {
 
 
    console.log(passwordChosen);
-   
+
  //Returns an object with the  length of the password and types of characters chosen
            
        return   passwordChosen;
@@ -163,10 +163,11 @@ var passwordChosen = {
 // Function for getting a random element from an array
 function getRandom(arr) {
     // Returns a random integer from 0 to arr length:
-    var index = Math.floor(Math.random() * arr.lenght);
-
+    var index = Math.floor(Math.random() * arr.length);
+   
     //Returns element from array 
     return (arr[index]);
+   
 }
 
 
@@ -183,10 +184,14 @@ var password = {
 
 var options = getPasswordOptions();
 
+console.log(options);
+
 for (var index=0 ; index< options.length ; index++){
 
   // Call for getting a random element from the array of chosen characters 
   var randomArray = getRandom(options.characters);
+  //console.log (options.characters);
+  console.log (randomArray);
 
   //Call for getting a character base on the random selection of the type of character previously chosen
   switch (randomArray) {
