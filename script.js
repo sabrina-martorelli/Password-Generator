@@ -113,7 +113,7 @@ var passwordChosen = {
 
   //Prompt to get Character type: Lowercase
 
-  var lowercase= prompt("Do you want to include lowercase characters on your password?");
+  var lowercase= alert("Do you want to include lowercase characters on your password?");
 
     //If the user want to include lowercases characters on the password
     if (lowercase) {
@@ -123,7 +123,7 @@ var passwordChosen = {
 
   //Prompt to get Character type: Uppercase
 
-  var uppercase= prompt("Do you want to include uppercase characters on your password?");
+  var uppercase= alert("Do you want to include uppercase characters on your password?");
 
   //If the user want to include uppercase characters on the password
   if (uppercase) {
@@ -134,7 +134,7 @@ var passwordChosen = {
   //Prompt to get Character type: Numeric
 
 
-  var numeric= prompt("Do you want to include numeric characters on your password?");
+  var numeric= alert("Do you want to include numeric characters on your password?");
 
   //If the user want to include numeric characters on the password
   if (numeric) {
@@ -145,7 +145,7 @@ var passwordChosen = {
 
    //Prompt to get Character type: Special characters
 
-   var special= prompt("Do you want to include numeric characters on your password?");
+   var special= alert("Do you want to include numeric characters on your password?");
 
    //If the user want to include special characters on the password
    if (special) {
@@ -155,11 +155,10 @@ var passwordChosen = {
 
 
 
- //Returns an array with the chosen types of characters to generate the password
+ //Returns an object with the  length of the password and types of characters chosen
            
        return   passwordChosen;
 
-//
 
 
 
