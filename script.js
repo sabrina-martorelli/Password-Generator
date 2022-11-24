@@ -97,14 +97,14 @@ var upperCasedCharacters = [
 function getPasswordOptions() {
 
 //Function variables
-var userChoice = 0 
+var passwordLength = 0 
   
 
 
   // Prompt to get the length of password - At least 10 characters but no more than 64.
   // Will keep asking until the correct option is choosen
-  while (userChoice < 10 ) and (userChoice > 64){
-    userChoice = prompt("Please, enter the length of password (between 10 and 64)");
+  while (passwordLength < 10 ) and (passwordLength > 64){
+    passwordLength = prompt("Please, enter the length of password (between 10 and 64)");
   }
 
 
