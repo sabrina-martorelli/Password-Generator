@@ -106,6 +106,9 @@ function getPasswordOptions() {
     passwordChosen.length = prompt("Please, enter the length of password (between 10 and 64)");
   }
 
+ //Will keep asking the user until at least one type of character is chosen
+  while  (passwordChosen.characters.length==0) {
+
   //Use of confirm to get Character type: Lowercase
   var lowercase = confirm("Do you want to include lowercase characters on your password?");
 
@@ -141,6 +144,15 @@ function getPasswordOptions() {
     //the letter s (s for special) will be added to the charactersChosen array that will be used for randomization
     passwordChosen.characters.push('s');
   }
+
+   //
+   if(passwordChosen.characters.length==0){
+    alert('Please choose at least one type of character to generate your password');
+   }
+  
+
+  }
+
 
   //Returns an object with the  length of the password and types of characters chosen
   return passwordChosen;
