@@ -95,122 +95,99 @@ var upperCasedCharacters = [
 function getPasswordOptions() {
 
   //Object to store and return input values
-var passwordChosen = {
-  length : 0,
-  characters :[],
-}
+  var passwordChosen = {
+    length: 0,
+    characters: [],
+  }
 
   // Prompt to get the user input for the length of password - At least 10 characters but no more than 64.
   // Will keep asking until a number within the limits is chosen
-  while ((passwordChosen.length < 10 ) || (passwordChosen.length > 64))
-  {
+  while ((passwordChosen.length < 10) || (passwordChosen.length > 64)) {
     passwordChosen.length = prompt("Please, enter the length of password (between 10 and 64)");
   }
- 
 
   //Prompt to get Character type: Lowercase
+  var lowercase = confirm("Do you want to include lowercase characters on your password?");
 
-  var lowercase= confirm("Do you want to include lowercase characters on your password?");
-
-    //If the user want to include lowercases characters on the password
-    if (lowercase) {
-        // the letter l (l for lowercase) will be added to the charactersChosen array that will be used for randomization
-        passwordChosen.characters.push('l');      
-    }
+  //If the user want to include lowercases characters on the password
+  if (lowercase) {
+    // the letter l (l for lowercase) will be added to the charactersChosen array that will be used for randomization
+    passwordChosen.characters.push('l');
+  }
 
   //Prompt to get Character type: Uppercase
-
-  var uppercase= confirm("Do you want to include uppercase characters on your password?");
+  var uppercase = confirm("Do you want to include uppercase characters on your password?");
 
   //If the user want to include uppercase characters on the password
   if (uppercase) {
-      // the letter u (u for uppercase) will be added to the charactersChosen array that will be used for randomization
-      passwordChosen.characters.push('u');      
+    // the letter u (u for uppercase) will be added to the charactersChosen array that will be used for randomization
+    passwordChosen.characters.push('u');
   }
 
-  //Prompt to get Character type: Numeric
-
-
-  var numeric= confirm("Do you want to include numeric characters on your password?");
+  //Confirm to get Character type: Numeric
+  var numeric = confirm("Do you want to include numeric characters on your password?");
 
   //If the user want to include numeric characters on the password
   if (numeric) {
-      //the letter n (n for numeric) will be added to the charactersChosen array that will be used for randomization
-      passwordChosen.characters.push('n');      
+    //the letter n (n for numeric) will be added to the charactersChosen array that will be used for randomization
+    passwordChosen.characters.push('n');
   }
 
+  //Prompt to get Character type: Special characters
+  var special = confirm("Do you want to include numeric characters on your password?");
 
-   //Prompt to get Character type: Special characters
+  //If the user want to include special characters on the password
+  if (special) {
+    //the letter s (s for special) will be added to the charactersChosen array that will be used for randomization
+    passwordChosen.characters.push('s');
+  }
 
-   var special= confirm("Do you want to include numeric characters on your password?");
-
-   //If the user want to include special characters on the password
-   if (special) {
-       //the letter s (s for special) will be added to the charactersChosen array that will be used for randomization
-       passwordChosen.characters.push('s');      
-   }
-
-
-
- //Returns an object with the  length of the password and types of characters chosen
-           
-       return   passwordChosen;
-
-
+  //Returns an object with the  length of the password and types of characters chosen
+  return passwordChosen;
 }
-
 // Function for getting a random element from an array
 function getRandom(arr) {
-    // Returns a random integer from 0 to arr length:
-    var index = Math.floor(Math.random() * arr.length);
-   
-    //Returns element from array 
-    return (arr[index]);
-   
+  // Returns a random integer from 0 to arr length:
+  var index = Math.floor(Math.random() * arr.length);
+
+  //Returns element from array 
+  return (arr[index]);
+
 }
-
-
-
 
 // Function to generate password with user input
 function generatePassword() {
-//Object to store all information about password : length , characters chosen and text generated
-var password = {
-  text: '',
-  length : 0,
-  characters :[],
-}
-
-var options = getPasswordOptions();
-
-
-
-for (var i=0 ; i< options.length ; i++){
-
-  // Call for getting a random element from the array of chosen characters 
-  var randomArray = getRandom(options.characters);
- 
- 
-
-  //Call for getting a character base on the random selection of the type of character previously chosen
-  switch (randomArray) {
-    case 'l':
-      password.text += getRandom(lowerCasedCharacters);
-      break;
-    case 'u':
-      password.text += getRandom(upperCasedCharacters);
-      break;
-    case 'n':
-      password.text += getRandom(numericCharacters);
-      break;
-    case 's':
-      password.text += getRandom(specialCharacters);
-      break;
+  //Object to store all information about password : length , characters chosen and text generated
+  var password = {
+    text: '',
+    length: 0,
+    characters: [],
   }
 
-}
+  var options = getPasswordOptions();
 
-return password.text
+  for (var i = 0; i < options.length; i++) {
+
+    // Call for getting a random element from the array of chosen characters 
+    var randomArray = getRandom(options.characters);
+
+    //Call for getting a character base on the random selection of the type of character previously chosen
+    switch (randomArray) {
+      case 'l':
+        password.text += getRandom(lowerCasedCharacters);
+        break;
+      case 'u':
+        password.text += getRandom(upperCasedCharacters);
+        break;
+      case 'n':
+        password.text += getRandom(numericCharacters);
+        break;
+      case 's':
+        password.text += getRandom(specialCharacters);
+        break;
+    }
+  }
+  return password.text
 }
 
 // Get references to the #generate element
