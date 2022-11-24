@@ -137,7 +137,7 @@ function getPasswordOptions() {
   }
 
   //Use of confirm to get Character type: Special characters
-  var special = confirm("Do you want to include numeric characters on your password?");
+  var special = confirm("Do you want to include special characters on your password?");
 
   //If the user want to include special characters on the password
   if (special) {
