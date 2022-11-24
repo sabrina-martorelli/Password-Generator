@@ -100,13 +100,13 @@ function getPasswordOptions() {
     characters: [],
   }
 
-  // Prompt to get the user input for the length of password - At least 10 characters but no more than 64.
+  // Use of prompt to get the user input for the length of password - At least 10 characters but no more than 64.
   // Will keep asking until a number within the limits is chosen
   while ((passwordChosen.length < 10) || (passwordChosen.length > 64)) {
     passwordChosen.length = prompt("Please, enter the length of password (between 10 and 64)");
   }
 
-  //Prompt to get Character type: Lowercase
+  //Use of confirm to get Character type: Lowercase
   var lowercase = confirm("Do you want to include lowercase characters on your password?");
 
   //If the user want to include lowercases characters on the password
@@ -115,7 +115,7 @@ function getPasswordOptions() {
     passwordChosen.characters.push('l');
   }
 
-  //Prompt to get Character type: Uppercase
+  //Use of confirm to get Character type: Uppercase
   var uppercase = confirm("Do you want to include uppercase characters on your password?");
 
   //If the user want to include uppercase characters on the password
@@ -124,7 +124,7 @@ function getPasswordOptions() {
     passwordChosen.characters.push('u');
   }
 
-  //Confirm to get Character type: Numeric
+  //Use of confirm to get Character type: Numeric
   var numeric = confirm("Do you want to include numeric characters on your password?");
 
   //If the user want to include numeric characters on the password
@@ -133,7 +133,7 @@ function getPasswordOptions() {
     passwordChosen.characters.push('n');
   }
 
-  //Prompt to get Character type: Special characters
+  //Use of confirm to get Character type: Special characters
   var special = confirm("Do you want to include numeric characters on your password?");
 
   //If the user want to include special characters on the password
@@ -163,9 +163,10 @@ function generatePassword() {
     length: 0,
     characters: [],
   }
-
+  //Object to store password Options 
   var options = getPasswordOptions();
 
+  //Loop to generate the password text
   for (var i = 0; i < options.length; i++) {
 
     // Call for getting a random element from the array of chosen characters 
