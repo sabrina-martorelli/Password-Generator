@@ -112,7 +112,7 @@ function getPasswordOptions() {
             while ( (isNaN(passwordChosen.length) || (passwordChosen.length < 10) || (passwordChosen.length > 64)) && (passwordChosen.length !== null) ) {
           
               passwordChosen.length = prompt("Please, enter the number of characters for the password. Must be a number between 10 and 64.");
-              console.log (passwordChosen.length);
+             
             }
 
             if (passwordChosen.length === null){
