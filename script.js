@@ -181,11 +181,11 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  //Object to store all information about password : length , characters chosen and text generated
+  //Object to store all password information: length , characters chosen and text generated
   var password = {
     text: '',
     length: 0,
-    characters: [],
+    characterTypes: [],
   }
   //Object to store password Options 
   var options = getPasswordOptions();
@@ -194,7 +194,7 @@ function generatePassword() {
   for (var i = 0; i < options.length; i++) {
 
     // Call for getting a random element from the array of chosen characters 
-    var randomArray = getRandom(options.characters);
+    var randomCharacter = getRandom(options.characterTypes);
 
     //Call function with array for getting a character base on the random selection of the type of character previously chosen
     //Case l is for lowercase
@@ -202,7 +202,7 @@ function generatePassword() {
     //Case n is for Numeric Characters
     //Case s is for Special Characters
 
-    switch (randomArray) {
+    switch (randomCharacter) {
       case 'l':
         password.text += getRandom(lowerCasedCharacters);
         break;
