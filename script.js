@@ -89,6 +89,53 @@ var upperCasedCharacters = [
 ];
 
 
+// Function to prompt user for types of characters options
+function getTypeOfCharacters() {
+  
+  //Array to store input options
+  var characters = [];
+
+  // Loop keep asking until at least 1 type of character was chosen
+  while (characters.length == 0) {
+
+    //Character type: Lowercase 
+    var lowercase = confirm("Select OK if you want to include LOWERCASE characters in the password.\nSelect Cancel if you don't want to include them.");
+    if (lowercase) {
+      // The letter l (l for lowercase) will be added and used later for randomization
+      characters.push('l');
+    }
+
+    //Character type: Uppercase
+    var uppercase = confirm("Select OK if you want to include UPPERCASE characters in the password.\nSelect Cancel if you don't want to include them.");
+    if (uppercase) {
+      // The letter u (u for uppercase) will be added and used later for randomization
+      characters.push('u');
+    }
+
+    //Character type: Numeric
+    var numeric = confirm("Select OK if you want to include NUMERIC characters in the password.\nSelect Cancel if you don't want to include them.");
+    if (numeric) {
+      //The letter n (n for numeric) will be added and used later for randomization
+      characters.push('n');
+    }
+
+    //Character type: Special characters
+    var special = confirm("Select OK if you want to include SPECIAL characters in the password.\nSelect Cancel if you don't want to include them.");
+    if (special) {
+      //The letter s (s for special) will be added and used later for randomization
+      characters.push('s');
+    }
+
+    // If no type of character was chosen will start again
+    if (characters.length == 0) {
+      alert('Please choose at least one type of character to generate the password');
+    }
+  }
+  //Returns array with type of characters chosen
+  return characters;
+
+}
+
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -96,83 +143,26 @@ function getPasswordOptions() {
   //Object to store and return input values
   var passwordChosen = {
     length: 0,
-    characters: [],
+    characterTypes: [],
   }
 
-  // Use of prompt to get the user input for the length of password - At least 10 characters but no more than 64.
-  //Will keep asking until a number within the limits is chosen. 
-  //If a letter or any other character is chosen will ask again.
-  //If cancel is selected , will finish
-  passwordChosen.length = prompt("Please, enter the number of characters for the password. Must be a number between 10 and 64.\nSelect Cancel if you want to finish.");
+  //Gets user input for length of password - At least 10 characters but no more than 64.
+  //Loop keeps asking if a number outside limits, a letter or any other character was chosen       
+  //Loop finish if cancel button was selected.
+  while ((isNaN(passwordChosen.length) || (passwordChosen.length < 10) || (passwordChosen.length > 64)) && (passwordChosen.length !== null)) {
+    passwordChosen.length = prompt("Please, enter the number of characters for the password. Must be a number between 10 and 64.\nSelect Cancel if you want to finish.");
+  }
 
+  //Checks if cancel button was selected and finish
   if (passwordChosen.length === null) {
-    //If cancel was selected will finish
     alert('Please, select Generate Password button to start again.')
   }
-
   else {
-    //Will keep asking until a number within the limits is chosen. If a letter or any other character is chosen will ask again.If cancel is selected , will finish
-
-    while ((isNaN(passwordChosen.length) || (passwordChosen.length < 10) || (passwordChosen.length > 64)) && (passwordChosen.length !== null)) {
-
-      passwordChosen.length = prompt("Please, enter the number of characters for the password. Must be a number between 10 and 64.\nSelect Cancel if you want to finish.");
-
-    }
-    //If cancel was selected will finish
-    if (passwordChosen.length === null) {
-      alert('Please, select Generate Password button to start again.')
-    }
-    else {
-      //Will keep asking the user until at least 1 type of character is chosen
-      while (passwordChosen.characters.length == 0) {
-
-        //Use of confirm to get Character type: Lowercase
-        var lowercase = confirm("Select OK if you want to include LOWERCASE characters in the password.\nSelect Cancel if you don't want to include them.");
-
-        //If the user want to include lowercases characters on the password
-        if (lowercase) {
-          // The letter l (l for lowercase) will be added to the charactersChosen array that will be used for randomization
-          passwordChosen.characters.push('l');
-        }
-
-        //Use of confirm to get Character type: Uppercase
-        var uppercase = confirm("Select OK if you want to include UPPERCASE characters in the password.\nSelect Cancel if you don't want to include them.");
-
-        //If the user want to include uppercase characters on the password
-        if (uppercase) {
-          // The letter u (u for uppercase) will be added to the charactersChosen array that will be used for randomization
-          passwordChosen.characters.push('u');
-        }
-
-        //Use of confirm to get Character type: Numeric
-        var numeric = confirm("Select OK if you want to include NUMERIC characters in the password.\nSelect Cancel if you don't want to include them.");
-
-        //If the user want to include numeric characters on the password
-        if (numeric) {
-          //The letter n (n for numeric) will be added to the charactersChosen array that will be used for randomization
-          passwordChosen.characters.push('n');
-        }
-
-        //Use of confirm to get Character type: Special characters
-        var special = confirm("Select OK if you want to include SPECIAL characters in the password.\nSelect Cancel if you don't want to include them.");
-
-        //If the user want to include special characters on the password
-        if (special) {
-          //The letter s (s for special) will be added to the charactersChosen array that will be used for randomization
-          passwordChosen.characters.push('s');
-        }
-
-        // If no type of character was chosen will start again
-        if (passwordChosen.characters.length == 0) {
-          alert('Please choose at least one type of character to generate the password');
-        }
-
-
-      }
-    }
+    //Call function to get impit for type of characters
+    passwordChosen.characterTypes = getTypeOfCharacters();
   }
 
-  //Returns an object with the  length of the password and types of characters chosen
+  //Returns an object with the length of the password and types of characters chosen
   return passwordChosen;
 }
 
@@ -190,28 +180,28 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  //Object to store all information about password : length , characters chosen and text generated
+  //Object to store all password information: length , characters chosen and text generated
   var password = {
     text: '',
     length: 0,
-    characters: [],
+    characterTypes: [],
   }
   //Object to store password Options 
   var options = getPasswordOptions();
 
-   //Loop to generate the password text
+  //Loop to generate the password text
   for (var i = 0; i < options.length; i++) {
 
     // Call for getting a random element from the array of chosen characters 
-    var randomArray = getRandom(options.characters);
+    var randomCharacter = getRandom(options.characterTypes);
 
     //Call function with array for getting a character base on the random selection of the type of character previously chosen
     //Case l is for lowercase
     //Case u is for uppercase
     //Case n is for Numeric Characters
     //Case s is for Special Characters
-    
-    switch (randomArray) {
+
+    switch (randomCharacter) {
       case 'l':
         password.text += getRandom(lowerCasedCharacters);
         break;
