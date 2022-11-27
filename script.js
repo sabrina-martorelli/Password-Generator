@@ -91,7 +91,8 @@ var upperCasedCharacters = [
 
 // Function to prompt user for types of characters options
 function getTypeOfCharacters() {
-
+  
+  //Array to store input options
   var characters = [];
 
   // Loop keep asking until at least 1 type of character was chosen
@@ -130,7 +131,7 @@ function getTypeOfCharacters() {
       alert('Please choose at least one type of character to generate the password');
     }
   }
-
+  //Returns array with type of characters chosen
   return characters;
 
 }
@@ -142,7 +143,7 @@ function getPasswordOptions() {
   //Object to store and return input values
   var passwordChosen = {
     length: 0,
-    characters: [],
+    characterTypes: [],
   }
 
   //Gets user input for length of password - At least 10 characters but no more than 64.
@@ -153,15 +154,16 @@ function getPasswordOptions() {
     console.log(passwordChosen.length);
   }
 
-  //If cancel button was selected will finish
+  //Checks if cancel button was selected and finish
   if (passwordChosen.length === null) {
     alert('Please, select Generate Password button to start again.')
   }
   else {
-    passwordChosen.characters = getTypeOfCharacters();
+    //Call function to get impit for type of characters
+    passwordChosen.characterTypes = getTypeOfCharacters();
   }
 
-  //Returns an object with the  length of the password and types of characters chosen
+  //Returns an object with the length of the password and types of characters chosen
   return passwordChosen;
 }
 
