@@ -99,18 +99,18 @@ function getPasswordOptions() {
     characters: [],
   }
 
+  
   // Use of prompt to get the user input for the length of password - At least 10 characters but no more than 64.
   //Will keep asking until a number within the limits is chosen. 
   //If a letter or any other character is chosen will ask again.
   //If cancel is selected , will finish
-  passwordChosen.length = prompt("Please, enter the number of characters for the password. Must be a number between 10 and 64.\nSelect Cancel if you want to finish.");
-
-  if (passwordChosen.length === null) {
+//  passwordChosen.length = prompt("Please, enter the number of characters for the password. Must be a number between 10 and 64.\nSelect Cancel if you want to finish.");
+ // if (passwordChosen.length === null) {
     //If cancel was selected will finish
-    alert('Please, select Generate Password button to start again.')
-  }
+  //  alert('Please, select Generate Password button to start again.')
+ // }
 
-  else {
+  
     //Will keep asking until a number within the limits is chosen. If a letter or any other character is chosen will ask again.If cancel is selected , will finish
 
     while ((isNaN(passwordChosen.length) || (passwordChosen.length < 10) || (passwordChosen.length > 64)) && (passwordChosen.length !== null)) {
@@ -170,7 +170,7 @@ function getPasswordOptions() {
 
       }
     }
-  }
+ 
 
   //Returns an object with the  length of the password and types of characters chosen
   return passwordChosen;
