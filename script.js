@@ -151,7 +151,6 @@ function getPasswordOptions() {
   //Loop finish if cancel button was selected.
   while ((isNaN(passwordChosen.length) || (passwordChosen.length < 10) || (passwordChosen.length > 64)) && (passwordChosen.length !== null)) {
     passwordChosen.length = prompt("Please, enter the number of characters for the password. Must be a number between 10 and 64.\nSelect Cancel if you want to finish.");
-    console.log(passwordChosen.length);
   }
 
   //Checks if cancel button was selected and finish
